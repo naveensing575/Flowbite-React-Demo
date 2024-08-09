@@ -1,4 +1,7 @@
-function Banner() {
+import { useNavigate } from "react-router-dom";
+
+function Home() {
+  const navigate = useNavigate();
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-screen-xl px-4 py-8 text-center lg:py-16">
@@ -11,7 +14,7 @@ function Banner() {
         </p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
           <a
-            href="#"
+            onClick={() => navigate("/signup")}
             className="inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
           >
             Get started
@@ -43,4 +46,4 @@ function Banner() {
   );
 }
 
-export default Banner;
+export default Home;

@@ -1,12 +1,19 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { DarkThemeToggle } from "flowbite-react";
-import Banner from "./components/Banner";
+import Home from "./pages/Home";
+import Signup from "./components/Signup";
 
 function App() {
   return (
-    <main className="flex min-h-screen items-center justify-center gap-2 dark:bg-gray-800">
-      <DarkThemeToggle className="absolute right-4 top-4" />
-      <Banner />
-    </main>
+    <Router>
+      <main className="flex min-h-screen items-center justify-center gap-2 dark:bg-gray-800">
+        <DarkThemeToggle className="absolute right-4 top-4" />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </main>
+    </Router>
   );
 }
 
