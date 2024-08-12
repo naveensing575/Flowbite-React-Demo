@@ -1,5 +1,6 @@
 import { useFormik, FormikProps } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 // Define the form values type
 interface SignupFormValues {
@@ -84,6 +85,8 @@ function FormField({
 }
 
 function Signup() {
+  const navigate = useNavigate(); // Hook for navigation
+
   const formik = useFormik<SignupFormValues>({
     initialValues: {
       firstName: "",
@@ -119,9 +122,10 @@ function Signup() {
         .oneOf([Yup.ref("password")], "Passwords must match")
         .required("Confirm password is required"),
     }),
-    onSubmit: (values) => {
-      alert("Form submitted successfully!");
+    onSubmit: (values, { resetForm }) => {
       console.log(values);
+      resetForm();
+      navigate("/dashboard");
     },
   });
 
