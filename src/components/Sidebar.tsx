@@ -1,9 +1,16 @@
+import { useState } from "react";
+
 function Sidebar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div>
+    <div className="flex">
       <button
-        data-drawer-target="default-sidebar"
-        data-drawer-toggle="default-sidebar"
+        onClick={toggleSidebar}
         aria-controls="default-sidebar"
         type="button"
         className="ms-3 mt-2 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
@@ -26,10 +33,12 @@ function Sidebar() {
 
       <aside
         id="default-sidebar"
-        className="fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full transition-transform sm:translate-x-0"
+        className={`fixed left-0 top-0 z-40 h-screen w-64 bg-gray-50 px-3 py-4 transition-transform dark:bg-gray-800 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } sm:translate-x-0`}
         aria-label="Sidebar"
       >
-        <div className="h-full overflow-y-auto bg-gray-50 px-3 py-4 dark:bg-gray-800">
+        <div className="h-full overflow-y-auto">
           <ul className="space-y-2 font-medium">
             <li>
               <a
@@ -99,14 +108,11 @@ function Sidebar() {
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
-                  viewBox="0 0 20 18"
+                  viewBox="0 0 20 20"
                 >
-                  <path d="M14 2H6a1 1 0 0 0-1 1v2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-2h2a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-2V3a1 1 0 0 0-1-1ZM6 4h8v2H6V4Zm10 8h-2v-2h-6v2H4V6h12v6Z" />
+                  <path d="M5 3a3 3 0 0 0-3 3v11a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V6a3 3 0 0 0-3-3H5Zm4 6V5h6a1 1 0 0 1 1 1v3H9Z" />
                 </svg>
-                <span className="ms-3 flex-1 whitespace-nowrap">Notes</span>
-                <span className="inline-flex h-3 w-3 items-center justify-center rounded-full bg-gray-100 p-3 text-sm font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-300">
-                  8
-                </span>
+                <span className="ms-3 flex-1 whitespace-nowrap">Services</span>
               </a>
             </li>
             <li>
@@ -121,12 +127,9 @@ function Sidebar() {
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
-                  <path d="M4 10V5a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1Zm12 0V5a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1ZM5 9V6h2v3H5Zm8 0V6h2v3h-2Z" />
+                  <path d="M4 1a1 1 0 1 0 0 2h2v14H4a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2h-2V3h2a1 1 0 1 0 0-2H4Zm8 0v14h-4V1h4Z" />
                 </svg>
-                <span className="ms-3 flex-1 whitespace-nowrap">Projects</span>
-                <span className="ms-3 inline-flex h-3 w-3 items-center justify-center rounded-full bg-gray-100 p-3 text-sm font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-300">
-                  5
-                </span>
+                <span className="ms-3 flex-1 whitespace-nowrap">Products</span>
               </a>
             </li>
             <li>
@@ -141,12 +144,9 @@ function Sidebar() {
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
-                  <path d="M10 2C5.029 2 1 6.029 1 11s4.029 9 9 9 9-4.029 9-9S14.971 2 10 2Zm0 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14ZM9 8a1 1 0 0 0-2 0v4a1 1 0 1 0 2 0V8Zm2 1a1 1 0 1 0-2 0v4a1 1 0 1 0 2 0V9Z" />
+                  <path d="M10 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM7.333 9A7.333 7.333 0 0 0 0 16.333v.834A2.833 2.833 0 0 0 2.833 20h14.334A2.833 2.833 0 0 0 20 17.167v-.834A7.333 7.333 0 0 0 12.667 9H7.333Z" />
                 </svg>
-                <span className="ms-3 flex-1 whitespace-nowrap">Reminders</span>
-                <span className="ms-3 inline-flex h-3 w-3 items-center justify-center rounded-full bg-gray-100 p-3 text-sm font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-300">
-                  7
-                </span>
+                <span className="ms-3 flex-1 whitespace-nowrap">Users</span>
               </a>
             </li>
             <li>
@@ -161,12 +161,9 @@ function Sidebar() {
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
-                  <path d="M10 2a1 1 0 0 0-1 1v1.707l-.293-.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l2-2a1 1 0 0 0-1.414-1.414L11 4.707V3a1 1 0 0 0-1-1ZM4 10a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2v-4H4Zm12-1a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2Z" />
+                  <path d="M10.75 4a.75.75 0 0 0-1.5 0v6.548l-4.622 2.66a.75.75 0 0 0 .744 1.303l4.878-2.809 4.878 2.81a.75.75 0 0 0 .744-1.304l-4.622-2.66V4Z" />
                 </svg>
-                <span className="ms-3 flex-1 whitespace-nowrap">Reports</span>
-                <span className="ms-3 inline-flex h-3 w-3 items-center justify-center rounded-full bg-gray-100 p-3 text-sm font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-300">
-                  4
-                </span>
+                <span className="ms-3 flex-1 whitespace-nowrap">Orders</span>
               </a>
             </li>
             <li>
@@ -181,14 +178,20 @@ function Sidebar() {
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
-                  <path d="M8 2a1 1 0 0 0-1 1v1H5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2v6a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-6h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-2V3a1 1 0 0 0-1-1H8Zm4 2h2v2h-2V4Zm-4 4H5v2h3v-2Zm2 0v2h3v-2H10Z" />
+                  <path d="M9.6 2.8a.4.4 0 0 1 .8 0V7h3.35a.4.4 0 1 1 0 .8H10.4v6.25a.4.4 0 1 1-.8 0V7.8H6.25a.4.4 0 0 1 0-.8H9.6V2.8ZM10 20a1.98 1.98 0 1 1 0-3.96A1.98 1.98 0 0 1 10 20Zm0-1.6a.38.38 0 1 0 0-.76.38.38 0 0 0 0 .76Z" />
                 </svg>
-                <span className="ms-3 flex-1 whitespace-nowrap">Settings</span>
+                <span className="ms-3 flex-1 whitespace-nowrap">Help</span>
               </a>
             </li>
           </ul>
         </div>
       </aside>
+
+      <div
+        className={`p-4 transition-all duration-300 ${isOpen ? "sm:ml-64" : "sm:ml-0"}`}
+      >
+        {/* Main content here */}
+      </div>
     </div>
   );
 }

@@ -115,9 +115,9 @@ const CircularChart = () => {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="m1 9 4-4-4-4"
                     />
                   </svg>
@@ -144,9 +144,9 @@ const CircularChart = () => {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="m1 1 4 4 4-4"
             />
           </svg>
@@ -157,8 +157,8 @@ const CircularChart = () => {
         >
           <div className="p-3" aria-labelledby="dateRangeButton">
             <div
-              date-rangepicker
-              datepicker-autohide
+              date-rangepicker="true"
+              datepicker-autohide="true"
               className="flex items-center"
             >
               <div className="relative">

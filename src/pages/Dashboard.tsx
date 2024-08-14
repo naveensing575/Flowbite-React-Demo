@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Chart from "../components/Chart";
 import CircularChart from "../components/CircularChart";
 import BarChart from "../components/BarChart";
@@ -12,10 +12,28 @@ function Dashboard() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (isSidebarOpen && !event.target.closest(".sidebar")) {
+        closeSidebar();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isSidebarOpen]);
+
   return (
     <div className="flex h-screen bg-gray-100 dark:bg-gray-900">
       {isSidebarOpen && <Sidebar />}
-      <div className="flex flex-1 flex-col">
+      <div className="flex h-full flex-1 flex-col">
         <header className="flex items-center bg-white p-4 dark:bg-gray-800">
           <button
             onClick={toggleSidebar}
@@ -28,7 +46,7 @@ function Dashboard() {
             Dashboard
           </h2>
         </header>
-        <main className="flex-1 p-6">
+        <main className="flex-1 overflow-y-auto p-6">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg bg-white p-4 shadow-lg dark:bg-gray-800">
               <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
@@ -44,7 +62,13 @@ function Dashboard() {
             </div>
             <div className="rounded-lg bg-white p-4 shadow-lg dark:bg-gray-800">
               <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
-                Sales Overview
+                Sales Overview - IT Dep
+              </h3>
+              <BarChart />
+            </div>
+            <div className="rounded-lg bg-white p-4 shadow-lg dark:bg-gray-800">
+              <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
+                Sales Overview - Business Dep
               </h3>
               <BarChart />
             </div>
