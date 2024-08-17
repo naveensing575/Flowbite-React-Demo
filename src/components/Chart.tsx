@@ -48,8 +48,8 @@ const Chart: React.FC = () => {
               show: true,
               fontFamily: "Inter, sans-serif",
               offsetY: -20,
-              formatter: function (value: number): string {
-                return value.toFixed(1) + "k"; // Ensure value is formatted as string
+              formatter: function (value: any): string {
+                return value.toFixed(1) + "k";
               },
             },
           },
@@ -72,15 +72,15 @@ const Chart: React.FC = () => {
     },
     yaxis: {
       labels: {
-        formatter: function (value: string): string {
-          return parseFloat(value).toFixed(1) + "k"; // Ensure value is formatted as string
+        formatter: function (value: any): string {
+          return parseFloat(value).toFixed(1) + "k";
         },
       },
     },
     xaxis: {
       labels: {
-        formatter: function (value: string): string {
-          return parseFloat(value).toFixed(1) + "k"; // Ensure value is formatted as string
+        formatter: function (value: any): string {
+          return parseFloat(value).toFixed(1) + "k";
         },
       },
       axisTicks: {

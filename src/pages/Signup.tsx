@@ -1,5 +1,4 @@
-import { useState, useCallback } from "react";
-import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { useState } from "react";
 import * as Yup from "yup";
 import { useFormik, FormikProps } from "formik";
 import { Link, useNavigate } from "react-router-dom";
@@ -206,7 +205,7 @@ function Signup() {
           </div>
           <button
             type="submit"
-            className="mt-6 w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="mt-6 w-full rounded-lg bg-blue-400 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-600"
             disabled={loader} // Disable button when loading
           >
             {loader ? (
@@ -233,8 +232,8 @@ function Signup() {
         </form>
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            Already have an account?{" "}
-            <Link to="/login" className="text-blue-600 hover:underline">
+            Already have an account?
+            <Link to="/login" className="text-blue-400 hover:underline">
               Log in
             </Link>
           </p>

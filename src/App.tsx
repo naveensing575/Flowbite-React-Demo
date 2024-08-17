@@ -11,6 +11,7 @@ function App() {
         <DarkThemeToggle className="absolute right-4 top-4" />
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>

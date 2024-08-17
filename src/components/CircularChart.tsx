@@ -1,4 +1,3 @@
-import React from "react";
 import ApexCharts from "react-apexcharts";
 
 const CircularChart = () => {
@@ -37,14 +36,14 @@ const CircularChart = () => {
     },
     yaxis: {
       labels: {
-        formatter: function (value) {
+        formatter: function (value: any) {
           return value + "%";
         },
       },
     },
     xaxis: {
       labels: {
-        formatter: function (value) {
+        formatter: function (value: any) {
           return value + "%";
         },
       },
@@ -220,7 +219,7 @@ const CircularChart = () => {
       </div>
       <div className="my-4">
         <ApexCharts
-          options={chartOptions}
+          _options={chartOptions}
           series={chartOptions.series}
           type="pie"
           height={chartOptions.chart.height}

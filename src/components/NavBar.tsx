@@ -1,6 +1,8 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
 
 export function NavBar() {
+  const navigate = useNavigate();
   return (
     <Navbar fluid rounded>
       <Navbar.Brand href="/">
@@ -8,6 +10,7 @@ export function NavBar() {
           src="https://i.ibb.co/W3qWYvD/logo-demo.png"
           className="mr-3 h-24 w-24" // Updated dimensions here
           alt="Flowbite React Logo"
+          onClick={() => navigate("/")}
         />
         <span className="font-cursive self-center whitespace-nowrap text-xl dark:text-white">
           Due-Dash

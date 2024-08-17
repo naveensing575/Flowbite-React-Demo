@@ -173,7 +173,7 @@ const BarChart = () => {
       </div>
 
       <ApexCharts
-        options={options}
+        _options={options}
         series={options.series}
         type="bar"
         height="320px"
